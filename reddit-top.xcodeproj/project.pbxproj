@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710DFBDD214C2E3E00E8A884 /* TopPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710DFBDC214C2E3E00E8A884 /* TopPostCell.swift */; };
+		710DFBDF214C331900E8A884 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710DFBDE214C331900E8A884 /* UIView+Extensions.swift */; };
 		71CAB1F7214BAE7B005D8CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CAB1F6214BAE7B005D8CEB /* AppDelegate.swift */; };
 		71CAB1F9214BAE7B005D8CEB /* TopPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CAB1F8214BAE7B005D8CEB /* TopPostsViewController.swift */; };
 		71CAB1FC214BAE7B005D8CEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71CAB1FA214BAE7B005D8CEB /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		1C80D08F2B25F91E27D29BC7 /* Pods-reddit-top.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reddit-top.release.xcconfig"; path = "Pods/Target Support Files/Pods-reddit-top/Pods-reddit-top.release.xcconfig"; sourceTree = "<group>"; };
 		27FB4FF9C7C6697218C82BBC /* Pods_reddit_top.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reddit_top.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		710DFBDC214C2E3E00E8A884 /* TopPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostCell.swift; sourceTree = "<group>"; };
+		710DFBDE214C331900E8A884 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		71CAB1F3214BAE7B005D8CEB /* reddit-top.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reddit-top.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CAB1F6214BAE7B005D8CEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71CAB1F8214BAE7B005D8CEB /* TopPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 				27FB4FF9C7C6697218C82BBC /* Pods_reddit_top.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		710DFBDB214C2E2D00E8A884 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				710DFBDC214C2E3E00E8A884 /* TopPostCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		71CAB1EA214BAE7B005D8CEB = {
@@ -110,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				71CAB20F214BCC9E005D8CEB /* Rx+Extensions.swift */,
+				710DFBDE214C331900E8A884 /* UIView+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -125,6 +138,7 @@
 		71CAB214214BD175005D8CEB /* TopPosts */ = {
 			isa = PBXGroup;
 			children = (
+				710DFBDB214C2E2D00E8A884 /* Views */,
 				71CAB20C214BCA35005D8CEB /* TopPostsViewModel.swift */,
 				71CAB1F8214BAE7B005D8CEB /* TopPostsViewController.swift */,
 			);
@@ -274,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71CAB20D214BCA35005D8CEB /* TopPostsViewModel.swift in Sources */,
+				710DFBDD214C2E3E00E8A884 /* TopPostCell.swift in Sources */,
+				710DFBDF214C331900E8A884 /* UIView+Extensions.swift in Sources */,
 				71CAB210214BCC9E005D8CEB /* Rx+Extensions.swift in Sources */,
 				71CAB1F9214BAE7B005D8CEB /* TopPostsViewController.swift in Sources */,
 				71CAB212214BCF76005D8CEB /* TopPostModel.swift in Sources */,
