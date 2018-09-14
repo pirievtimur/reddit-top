@@ -10,6 +10,7 @@ class TopPostsViewModel {
     private let disposeBag = DisposeBag()
     private let data = PublishSubject<[TopPostModel]>()
     private var posts: [TopPostModel] = []
+    private var loadMore: Bool = true
 
     private var itemsPerPage: UInt {
         return 10
@@ -27,7 +28,7 @@ class TopPostsViewModel {
     }
     
     func loadNext() -> Observable<Void> {
-        return loadPosts()
+        return loadMore ? loadPosts() : Observable.empty()
     }
     
     private func loadPosts() -> Observable<Void> {
@@ -35,6 +36,7 @@ class TopPostsViewModel {
             .load(items: itemsPerPage, after: posts.first?.periodKey)
             .do(onNext: { [weak self] items in
                 guard let weakSelf = self else { return }
+                weakSelf.loadMore = items.count == weakSelf.itemsPerPage
                 weakSelf.posts.append(contentsOf: items)
                 weakSelf.data.onNext(weakSelf.posts)
             })
