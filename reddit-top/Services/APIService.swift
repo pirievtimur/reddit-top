@@ -1,6 +1,7 @@
 import RxSwift
 import RxCocoa
 import Foundation
+import ObjectMapper
 
 protocol TopPostsAPI {
     func load(items: UInt, after afterMark: String?) -> Observable<[TopPostModel]>
@@ -34,10 +35,10 @@ extension APIService: TopPostsAPI {
                 let periodKey: String? = data["after"] as? String
                 
                 children.forEach {
-                    guard let data = $0["data"] as? [String:AnyObject],
-                        let title = data["title"] as? String else { return }
+                    guard let data = $0["data"] as? [AnyHashable:Any],
+                        var post = Mapper<TopPostModel>().map(JSONObject: data) else { return }
                     
-                    let post = TopPostModel(title: title, periodKey: periodKey)
+                    post.periodKey = periodKey
                     
                     items.append(post)
                 }
