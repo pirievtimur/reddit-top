@@ -6,6 +6,7 @@ struct TopPostModel: Mappable {
     var dateInSeconds: Int
     var postImages: PostImages?
     var commentsCount: Int?
+    var imageURLString: String?
     var periodKey: String?
     
     init(title: String, author: String, dateInSeconds: Int) {
@@ -26,6 +27,7 @@ struct TopPostModel: Mappable {
         dateInSeconds <- map["created"]
         postImages <- map["preview"]
         commentsCount <- map["num_comments"]
+        imageURLString <- map["url"]
     }
 }
 

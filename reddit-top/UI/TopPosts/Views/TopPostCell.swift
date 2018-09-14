@@ -1,12 +1,13 @@
 import UIKit
 import SnapKit
+import Kingfisher
 
 class TopPostCell: UITableViewCell {
     static let identifier = "TopPostCell"
     
     private lazy var titleLabel = createLabel(fontSize: 17, color: .black)
     private lazy var authorTimeLabel = createLabel(fontSize: 12, color: .lightGray)
-    private lazy var postImageView = UIImageView(frame: .zero)
+    private lazy var postImageView = createImageView()
     private lazy var commentsNumberLabel = createLabel(fontSize: 12, color: .lightGray)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -48,7 +49,7 @@ class TopPostCell: UITableViewCell {
         postImageView.snp.makeConstraints {
             $0.top.equalTo(authorTimeLabel.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(1)
+            $0.height.equalTo(100)
         }
         
         commentsNumberLabel.snp.makeConstraints {
@@ -61,6 +62,11 @@ class TopPostCell: UITableViewCell {
     func updateWithModel(model: TopPostModel) {
         titleLabel.text = model.title
         authorTimeLabel.text = "Posted by \(model.author)"
+        
+        if let urlString = model.imageURLString, let url = URL(string: urlString) {
+            postImageView.kf.setImage(with: url)
+        }
+        
         if let comments = model.commentsCount, comments > 0 {
             let commentsString = comments == 1 ? "comment" : "comments"
             commentsNumberLabel.text = "\(comments) \(commentsString)"
@@ -77,5 +83,12 @@ private extension TopPostCell {
         label.numberOfLines = 0
         
         return label
+    }
+    
+    func createImageView() -> UIImageView {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
     }
 }
